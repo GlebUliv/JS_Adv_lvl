@@ -6,7 +6,7 @@ let products = [
 
 
 function renderProductsGrid( selector ){
-    let wrapper = document.querySelector( '#product - grid' )
+    let wrapper = document.querySelector( '#product-grid' )
         products.forEach(  
             product  => wrapper.appendChild( product.render() )   
         )

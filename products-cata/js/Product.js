@@ -1,7 +1,7 @@
 // module
 
 class Product {
-    constructor( _name, _category, _price, _amount, _currency, _images, _quantity ) {
+    constructor(_name, _category, _images, _amount, _currency, _quantity ) {
         this.name = _name
         this.category = _category
         this.images = _images
@@ -19,7 +19,7 @@ class Product {
     }
 
     set name(value) {
-        value == true ? this._name = value : console.error('Please right the name of product')
+        value != "" ? this._name = value : console.error('Please right the name of product')
         // if( value == true){
         //     this._name = value
         // }else{
@@ -34,7 +34,7 @@ class Product {
     }
 
     set category(value){
-        +typeof this.category == 'string' ? this._category = value : console.error("Not a String")
+        typeof this.category == 'string' ? this._category = value : console.error("Not a String")
         // if(typeof this.category == 'string'){
         //     this._category = value
         // }else{
