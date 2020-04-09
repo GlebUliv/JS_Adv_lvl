@@ -1,0 +1,99 @@
+body{
+    font-family: 'Spicy Rice', cursive;
+}
+
+#product-grid > div:nth-child(2) > div > div.images > img{
+    border: 10px solid #fff;
+}
+#product-grid > div > h4{
+    color: blue;
+}
+
+#product-grid div.info{
+    font-size: 20px;
+}
+#product-grid  div.product.col-sm-4  h4{
+    text-align: center;
+}
+
+#product-grid div.product.col-sm-4 div h5{
+    text-align: center;
+}
+
+.product{
+    /* border: 1px solid #333; */
+    box-shadow: 0 0 9px 1px rgba(219, 217, 217, 0.9);
+}
+
+.product:hover{
+    bottom: 13px;
+    box-shadow: 0 0 7px 10px rgba(219, 217, 217, 0.4);
+}
+
+#product-grid .info{
+    text-align: center;
+}
+
+#product-grid div.product.p-101.col-sm-4 div div.info h5{
+    margin-top: 40px;
+}
+
+.product .images .owl-nav{
+    text-align: center;
+}
+
+.product .images .owl-nav button{
+    outline: none;
+    font-weight: bold;
+    width: 50px;
+}
+
+.owl-stage-outer{
+    height: 100%;
+}
+
+.owl-nav .owl-prev{
+    font-size: 300% !important;
+}
+
+.owl-nav .owl-next{
+    font-size: 300% !important;
+}
+
+.owl-dots button {
+    outline: none !important;
+}
+.product .images .owl-dots{
+    text-align: center !important;
+}
+
+@media screen and (max-width: 570px){
+    .product{
+        padding: 30px 0 30px 0;
+    }
+}
+
+.owl-dots {
+    text-align: center !important;
+    /* position: fixed !important; */
+    bottom: 5px !important;
+    width: 100% !important;
+    -webkit-backface-visibility: hidden !important;
+    -moz-backface-visibility: hidden !important;
+    -ms-backface-visibility: hidden !important;
+    backface-visibility: hidden !important;
+}
+
+.owl-dot {
+    border-radius: 50px !important;
+    height: 10px !important;
+    width: 10px !important;
+    display: inline-block !important;
+    background: rgba(127,127,127, 0.5) !important;
+    margin-left: 5px !important;
+    margin-right: 5px !important;
+}
+
+.owl-dot.active {
+    background: rgba(127,127,127, 1) !important;
+}

@@ -1,18 +1,27 @@
 // module
 
 class Product {
-    constructor(_name, _category, _images, _amount, _currency, _quantity ) {
-        this.name = _name
-        this.category = _category
-        this.images = _images
-        this.price =  {
-           'amount': _amount,
-           'currency' : _currency
-        }
-        this.quantity = _quantity
+    constructor(id, name, category, images, price, quantity ) {
+        this.id = id
+        this.name = name
+        this.category = category
+        this.images = images
+        this._price = {}
+        this.price = price
+        this.quantity = quantity
     }
 
     // ----------------------------------------------------------------------------------------
+
+    get id(){
+        return this._id
+    }
+
+    set id(value){
+        typeof value !== 'null' && typeof value !== 'undefined' && typeof value !== 'boolean' ? this._id = value : console.error('Cant be assigned!!')
+    }
+
+    // ---------------------------------------------------------------------
 
     get name() {
         return this._name
@@ -34,7 +43,7 @@ class Product {
     }
 
     set category(value){
-        typeof this.category == 'string' ? this._category = value : console.error("Not a String")
+        typeof value == 'string' ? this._category = value : console.error("Not a String")
         // if(typeof this.category == 'string'){
         //     this._category = value
         // }else{
@@ -49,7 +58,7 @@ class Product {
     }
 
     set images(value){
-        Array.isArray(this.images) == true ? this._images = value : console.error('Not an Array')
+        Array.isArray(value) == true ? this._images = value : console.error('Not an Array')
     }
 
     // ---------------------------------------------------------------------------------
@@ -59,17 +68,46 @@ class Product {
     }
 
     set price(value) {
-        Object.keys(value) == ['amount', 'currency'] ? this._price = value : console.error('Not all properties')
+        if(Object.keys(value).includes('ammount') && Object.keys(value).includes('currency') == true) {
+            this.ammount = value.ammount 
+            this.currency = value.currency
+            // let { price: { ammount, currency } } = Product 
+        } else {
+            console.error('Not all properties') 
+        } 
     }
     
     // ------------------------------------------------------------------------------------------
+
+    // this.price = { 'amount': amount, 'currency': currency }
+
+
+    get ammount(){
+        return this._price.ammount
+    }
+
+    set ammount(value){
+        typeof value == 'number' ? this._price.ammount = value : console.error('Its not a number')
+    }
+
+    // ----------------------------------------------------------------------------------------------
+
+    get currency() {
+        return this._price.currency
+    }
+
+    set currency(value) {
+        typeof value == 'string' ? this._price.currency = value : console.error('Wrong currency')
+    }
+
+    // ---------------------------------------------------------------------------------------------
 
     get quantity(){
         return this._quantity
     }
 
     set quantity(value){
-        Number.isInteger(this.quantity) == true ? this._quantity = value : console.error('Not an Integer')
+        Number.isInteger(value) == true ? this._quantity = value : console.error('Not an Integer')
     }
 
     // properties: 
@@ -78,7 +116,8 @@ class Product {
        // price: {  amount: 100.00, currency: "EUR" }
        // quantity:  number (integer)
     
-    // constructor, set, get    
+    // constructor, set, get 
+    
     
 
     // function that renders this product
@@ -86,10 +125,51 @@ class Product {
     render(){
 
         let div = document.createElement("div")
-            div.appendChild( document.createElement("h2") )   
-            div.firstElementChild.innerHTML = this.name
+            // div.setAttribute('class', 'product')
+            div.classList.add('product')
+            div.classList.add('p-' + this.id)
+         div.classList.add('col-sm-4')
+            div.appendChild( document.createElement("h4") )   
+                    div.firstElementChild.innerHTML = this.name 
+
+        let divCategory = document.createElement('div')
+            divCategory.setAttribute('class', 'category')
+            // divCategory.classList.add('mt-3')
+            div.appendChild(divCategory)
+            divCategory.appendChild(document.createElement('h5'))
+            divCategory.firstElementChild.innerHTML = this.category
+
+        let imgArr = document.createElement('div')
+            imgArr.setAttribute('class', 'images')
+            imgArr.classList.add('mt-5')
+            div.appendChild(imgArr) 
+
+        // let carouselNav = document.createElement('div')
+        //     carouselNav.classList.add('owl-nav')
+        //     imgArr.appendChild('carouselNav')
+
+
+        for(let n = 0; n < this.images.length; n++){
+            let img = document.createElement('img')
+            img.setAttribute('src', this.images[n])
+            img.setAttribute('class', 'img')
+            img.classList.add('p-1')
+            imgArr.appendChild(img)
+        }
+
+        // let removeClass = document.querySelector('.owl-nav.disabled div[class=images] div[class=product]')
+        // removeClass.classList.remove('disabled')
+        
+        let divinfo = document.createElement('div')
+            divinfo.classList.add('info')
+            divinfo.classList.add('mt-5')
+            div.appendChild(divinfo)
+            
+        divinfo.innerHTML = `<b>Price:</b> ${this.price.ammount} ${this.price.currency} <br><b>Quantity:</b> ${this.quantity}`
 
         return div    
     }
+
+    
 
 }
