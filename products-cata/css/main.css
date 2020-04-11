@@ -23,6 +23,7 @@ body{
 .product{
     /* border: 1px solid #333; */
     box-shadow: 0 0 9px 1px rgba(219, 217, 217, 0.9);
+    height: auto;
 }
 
 .product:hover{
@@ -96,4 +97,10 @@ body{
 
 .owl-dot.active {
     background: rgba(127,127,127, 1) !important;
+}
+
+.cart{
+    
+    text-align: center;
+    margin-top: 50px;
 }

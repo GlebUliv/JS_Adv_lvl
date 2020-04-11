@@ -1,7 +1,12 @@
 // module
 
+// class Product {
+//     constructor( ...props ) {
+//         [this.id, this.name, this.category, this.images, this._price = {}, this.price, this.quantity] = props
+//     }
+
 class Product {
-    constructor(id, name, category, images, price, quantity ) {
+    constructor(id, name, category, images, price, quantity) {
         this.id = id
         this.name = name
         this.category = category
@@ -124,13 +129,14 @@ class Product {
     // return DOM structure
     render(){
 
-        let div = document.createElement("div")
+        let div = document.createElement('div')
             // div.setAttribute('class', 'product')
             div.classList.add('product')
             div.classList.add('p-' + this.id)
-         div.classList.add('col-sm-4')
-            div.appendChild( document.createElement("h4") )   
-                    div.firstElementChild.innerHTML = this.name 
+            div.setAttribute('id', `product-` + this.id)
+            div.classList.add('col-sm-4')
+            div.appendChild( document.createElement('h4') )   
+            div.firstElementChild.innerHTML = this.name 
 
         let divCategory = document.createElement('div')
             divCategory.setAttribute('class', 'category')
@@ -142,11 +148,7 @@ class Product {
         let imgArr = document.createElement('div')
             imgArr.setAttribute('class', 'images')
             imgArr.classList.add('mt-5')
-            div.appendChild(imgArr) 
-
-        // let carouselNav = document.createElement('div')
-        //     carouselNav.classList.add('owl-nav')
-        //     imgArr.appendChild('carouselNav')
+            div.appendChild(imgArr)
 
 
         for(let n = 0; n < this.images.length; n++){
@@ -156,9 +158,6 @@ class Product {
             img.classList.add('p-1')
             imgArr.appendChild(img)
         }
-
-        // let removeClass = document.querySelector('.owl-nav.disabled div[class=images] div[class=product]')
-        // removeClass.classList.remove('disabled')
         
         let divinfo = document.createElement('div')
             divinfo.classList.add('info')
@@ -166,6 +165,18 @@ class Product {
             div.appendChild(divinfo)
             
         divinfo.innerHTML = `<b>Price:</b> ${this.price.ammount} ${this.price.currency} <br><b>Quantity:</b> ${this.quantity}`
+
+        let divForCart = document.createElement('div')
+            divForCart.classList.add('cart')
+            div.appendChild(divForCart)
+
+        let toCart = document.createElement('button')
+            // toCart.classList.add('add_item')
+            toCart.setAttribute('class', 'mt-5')
+            toCart.setAttribute('class', 'btn btn-secondary')
+            // toCart.setAttribute('onclick', 'addProductToCart()')
+            divForCart.appendChild(toCart)
+
 
         return div    
     }
