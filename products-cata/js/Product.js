@@ -5,6 +5,8 @@
 //         [this.id, this.name, this.category, this.images, this._price = {}, this.price, this.quantity] = props
 //     }
 
+
+
 class Product {
     constructor(id, name, category, images, price, quantity) {
         this.id = id
@@ -15,6 +17,7 @@ class Product {
         this.price = price
         this.quantity = quantity
     }
+
 
     // ----------------------------------------------------------------------------------------
 
@@ -127,6 +130,10 @@ class Product {
 
     // function that renders this product
     // return DOM structure
+    
+
+    
+
     render(){
 
         let div = document.createElement('div')
@@ -135,8 +142,8 @@ class Product {
             div.classList.add('p-' + this.id)
             div.setAttribute('id', `product-` + this.id)
             div.classList.add('col-sm-4')
-            div.appendChild( document.createElement('h4') )   
-            div.firstElementChild.innerHTML = this.name 
+            div.appendChild(document.createElement('h4') )   
+            div.firstElementChild.innerHTML = this.name
 
         let divCategory = document.createElement('div')
             divCategory.setAttribute('class', 'category')
@@ -164,17 +171,15 @@ class Product {
             divinfo.classList.add('mt-5')
             div.appendChild(divinfo)
             
-        divinfo.innerHTML = `<b>Price:</b> ${this.price.ammount} ${this.price.currency} <br><b>Quantity:</b> ${this.quantity}`
+        divinfo.innerHTML = `<b>Price:</b> <span>${this.price.ammount} <b>${this.price.currency}</b></span> <br><b>Quantity:</b> <span>${this.quantity}</span>`
 
         let divForCart = document.createElement('div')
             divForCart.classList.add('cart')
             div.appendChild(divForCart)
 
-        let toCart = document.createElement('button')
-            // toCart.classList.add('add_item')
-            toCart.setAttribute('class', 'mt-5')
-            toCart.setAttribute('class', 'btn btn-secondary')
-            // toCart.setAttribute('onclick', 'addProductToCart()')
+        let toCart = document.createElement('a')
+            toCart.setAttribute('data-id', `${this.id}`)
+            toCart.setAttribute('class', 'btn btn-primary btn-lg mt-5 input add-to-cart')
             divForCart.appendChild(toCart)
 
 

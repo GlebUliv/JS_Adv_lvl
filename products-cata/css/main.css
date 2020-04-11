@@ -2,6 +2,30 @@ body{
     font-family: 'Spicy Rice', cursive;
 }
 
+nav{
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+#total{
+    display: inline-block;
+    font-size: 200%;
+}
+
+#total h3 {
+    float: right;
+    margin-left: 115px;
+    margin-top: 6px;
+}
+
+#cart-content th{
+    font-size: 15px;
+}
+
+.dropdown{
+    margin-right: 150px;
+}
+
 #product-grid > div:nth-child(2) > div > div.images > img{
     border: 10px solid #fff;
 }
@@ -103,4 +127,7 @@ body{
     
     text-align: center;
     margin-top: 50px;
+}
+nav ul{
+    outline: none !important;
 }

@@ -8,6 +8,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
         integrity="sha256-UhQQ4fxEeABh4JrcmAJ1+16id/1dnlOEVCFOxDef9Lw=" crossorigin="anonymous" />
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/default.css">
+    <link rel="stylesheet" href="css/custome.css">
+    <link rel="stylesheet" href="css/my_custome.css">
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <title>Products Calalog</title>
@@ -16,7 +19,58 @@
 </head>
 <body>
 
-    <div id="main" class="container">
+    <!-- NAV start -->
+
+    <!-- <nav class="navbar fixed-top">
+        <div class="row">
+            <div class="col dropdown">
+                <button id="dropdownMenuButton" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Cart (<span class="total-count"></span>)
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="#">Action</a>
+                    <a class="dropdown-item" href="#">Another action</a>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                </div>
+            </div>
+            <div>
+                <button class="clear-cart btn btn-danger">
+                    Clear Cart
+                </button>
+            </div>
+        </div>
+    </nav> -->
+
+
+    <nav class="navbar fixed-top">
+    <div class="two columns u-pull-right">
+        <ul>
+            <li class="submenu">
+                <img src="images/cart.png" id="img-cart">
+                <div id="shopping-cart">
+                    <table id="cart-content" class="u-full-width">
+                        <thead>
+                            <tr>
+                                <th>Image</th>
+                                <th>Name</th>
+                                <th>Price</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                    <div id="total">Total cost:</div>
+                    <a href="#" id="clear-cart" class="button u-full-width">Clear Cart</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+    </nav>
+
+
+    <!-- NAV end -->
+
+    <div id="main" class="container courses-list">
     <div id="product-grid" class="row mt-5">
         <!-- 4 x 3 products - matrix -->
     </div>
@@ -29,6 +83,6 @@
         integrity="sha256-pTxD+DSzIwmwhOqTFN+DB+nHjO4iAsbgfyFq5K5bcE0=" crossorigin="anonymous"></script>
     <script src="js/Product.js"></script>
     <script src="js/catalog.js"></script>
-    
+    <script src="js/toCart.js"></script>
 </body>
 </html>

@@ -5,7 +5,7 @@ let products = [
         'images/iPhone-2.jpg', 
         'images/iPhone-3.jpg'
     ], 
-    { ammount: 200, currency: "EUR" }, 1),
+    { ammount: 200, currency: "$" }, 1),
 
 
     new Product(101, "iMac Xiiii", "PC", 
@@ -14,7 +14,7 @@ let products = [
         'images/iMac-2.jpg', 
         'images/iMac-3.jpg'
     ], 
-    { ammount: 100, currency: "EUR" }, 1),
+    { ammount: 100, currency: "$" }, 1),
 
 
     new Product(102,"iPad iX", "Tablet", 
@@ -23,7 +23,7 @@ let products = [
         'images/iPad-2.jpg',
         'images/iPad-3.jpg'
     ], 
-    { ammount: 100, currency: 'EUR'}, 1),
+    { ammount: 100, currency: '$'}, 1),
 
     // new Product(103, "iPad iX", "Tablet",
     //     [
@@ -59,13 +59,17 @@ function renderProductsGrid(){
                     }
                 })
                 
-                
-                $(document).ready(function () {
-                    $(`.p-${product.id}`).click(function () {
-                        let id = $(`.p-${product.id}`).attr('id')
-                        alert('id of product is: ' + id)
-                    });
-                });
+                $('.product h4').addClass('item_title');
+                $('.product').addClass('info-card');
+                $('.info b:nth-child(1)').addClass('item_price');
+                // $('.cart .btn').addClass('add_item')
+                // $(document).ready(function () {
+                //     $(`.p-${product.id} .cart .btn`).click(function () {
+                //         let id = $(`.p-${product.id}`).attr('id')
+                //         // $('.dropdown-menu').append('id of product is: ' + id)
+                //         // $('.dropdown-menu').append(`.p-${product.id}`)
+                //     });
+                // });
 
                 
 
@@ -79,13 +83,6 @@ function renderProductsGrid(){
             }   
         )
 }
-
-// $(document).ready(function () {
-//     $('.btn').click(function () {
-//         let id = $(`.p-${product.id}`).attr('id')
-//         alert(id)
-//     });
-// });
 
 
 renderProductsGrid('#product-grid');
