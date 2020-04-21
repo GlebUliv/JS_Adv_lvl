@@ -40,8 +40,8 @@ let obj = {}
     // Total cart
     obj.totalCart = function () {
         let totalCart = 0;
-        for (let course in cart) {
-            totalCart += cart[course].price * cart[course].quantity;
+        for (let product in cart) {
+            totalCart += cart[product].price * cart[product].quantity;
         }
         return Number(totalCart.toFixed(2));
     }

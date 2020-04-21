@@ -185,7 +185,4 @@ class Product {
 
         return div    
     }
-
-    
-
 }
