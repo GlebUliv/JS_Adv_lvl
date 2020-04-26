@@ -5,7 +5,7 @@ let products = [
         'images/iPhone-2.jpg', 
         'images/iPhone-3.jpg'
     ], 
-    { ammount: 200, currency: "EUR" }, 1),
+    { ammount: 200, currency: "$" }, 1),
 
 
     new Product(101, "iMac Xiiii", "PC", 
@@ -14,7 +14,7 @@ let products = [
         'images/iMac-2.jpg', 
         'images/iMac-3.jpg'
     ], 
-    { ammount: 100, currency: "EUR" }, 1),
+    { ammount: 100, currency: "$" }, 1),
 
 
     new Product(102,"iPad iX", "Tablet", 
@@ -23,7 +23,7 @@ let products = [
         'images/iPad-2.jpg',
         'images/iPad-3.jpg'
     ], 
-    { ammount: 100, currency: 'EUR'}, 1),
+    { ammount: 100, currency: '$'}, 1),
 
     // new Product(103, "iPad iX", "Tablet",
     //     [

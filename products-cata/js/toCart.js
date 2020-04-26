@@ -32,61 +32,48 @@ function getCourseInfo(course) {
     addToCart(courseInfo);
 }
 
-let shoppingCart = (function () {
 
-cart = [];
-let obj = {}
-
-    // Total cart
-    obj.totalCart = function () {
-        let totalCart = 0;
-        for (let product in cart) {
-            totalCart += cart[product].price * cart[product].quantity;
-        }
-        return Number(totalCart.toFixed(2));
+function sum(input){
+    var total =  0;
+    for(var i=0;i<input.length;i++){ 
+            total += Number(input[i]);
     }
+    return total;
+}
 
-    return obj;
-
-})();
+let countRowsInTable = 0;
+priceArr = [];
 
 function addToCart(course) {
     let row = document.createElement('tr');
-
     row.innerHTML = `
-<tr>
-    <td>
-        <img src="${course.image}" width="100">    
-    </td>   
-    <td style="font-size: 14px">
-        ${course.name}
-    </td>
-     <td style="font-size: 14px">
-        ${course.price}
-    </td>
-     <td>
-        <a href="#" class="remove" data-id="${course.id}">X</a>
-    </td>
-</tr>
-`
-
-    let t = document.getElementById('total')
-    let h = document.createElement('h3')
-    t.appendChild(h)
-    $('#total h3').html(shoppingCart.totalCart());
-
-
-    // let t = document.getElementById('total')
-    // let h = document.createElement('h3')
-    // h.classList.add('total')
-    // h.innerHTML = `<div> 
-    // ${total}
-    // </div>
-    // `
-    // t.appendChild(h)
-        
+                    <tr>
+                        <td>
+                            <img src="${course.image}" width="100">    
+                        </td>   
+                        <td style="font-size: 14px">
+                            ${course.name}
+                        </td>
+                        <td style="font-size: 14px">
+                            ${course.price}
+                        </td>
+                        <td>
+                            <a href="#" class="remove" ammount="${course.price}" data-id="${course.id}">X</a>
+                        </td>
+                    </tr>
+                    `
+    if(countRowsInTable < 1){
+        let t = document.getElementById('total')
+        let h = document.createElement('h3')
+        t.appendChild(h)
+    }
+    
+    priceArr[countRowsInTable] = course.ammount;
+    const summPricesInArray = sum(priceArr);
+    $('#total h3').html(summPricesInArray);
 
     shoppingCartContent.appendChild(row);
+    countRowsInTable++;
 }
 
 
@@ -112,9 +99,13 @@ function loadEventListeners() {
 }
 
 function removeCourse(e) {
+    const price = e.target.attributes.ammount.value;
+    priceArr[countRowsInTable] = -price;
+    $('#total h3').html(sum(priceArr));
     if (e.target.classList.contains('remove')) {
         e.target.parentElement.parentElement.remove();
     }
+    countRowsInTable++;
 }
 
 function clearCart() {

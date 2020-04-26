@@ -171,7 +171,7 @@ class Product {
             divinfo.classList.add('mt-5')
             div.appendChild(divinfo)
             
-        divinfo.innerHTML = `<b>Price:</b> <span>${this.price.ammount} <b>${this.price.currency}</b></span> <br><b>Quantity:</b> <span>${this.quantity}</span>`
+        divinfo.innerHTML = `<b>Price:</b> <span>${this.price.ammount}</span> <b>${this.price.currency}</b> <br><b>Quantity:</b> <span>${this.quantity}</span>`
 
         let divForCart = document.createElement('div')
             divForCart.classList.add('cart')
@@ -185,4 +185,7 @@ class Product {
 
         return div    
     }
+
+    
+
 }
